@@ -34,6 +34,9 @@ public class ControllerLogicResponsavel implements ControllerLogic {
 
         ResponsavelDAO rd = DAOFactory.createResponsavelDAO();
         rd.inserir(responsavel);
+        
+    //    request.setAttribute("nomeresp", responsavel);
+
         request.getRequestDispatcher("funcionario/cadastraResponsavelConf.jsp").forward(request, response);
 
     }
@@ -60,7 +63,7 @@ public class ControllerLogicResponsavel implements ControllerLogic {
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cpf = request.getParameter("cpf");
         ResponsavelDAO rd = new JDBCResponsavelDAO();
-        rd.remover(Integer.parseInt(cpf));
+        rd.excluir(cpf);
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }

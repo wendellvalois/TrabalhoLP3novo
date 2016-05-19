@@ -56,11 +56,11 @@ public class JDBCResponsavelDAO implements ResponsavelDAO {
     }
 
     @Override
-    public void remover(int id) {
+    public void excluir(String cpf) {
         try {
-            String SQL = "delete from responsavel where id= ?";
+            String SQL = "delete from responsavel where cpfresponsavel= ?";
             PreparedStatement ps = connection.prepareStatement(SQL);
-            ps.setInt(1, id);
+            ps.setString(1, cpf);
             ps.executeUpdate();
 
             ps.close();

@@ -26,7 +26,7 @@ public class ConnectionFactory {
            // String url = "jdbc:mysql:ip:porta/schema"; //mudar o nome do banco aqui ex 8080/cantinadb
             String url = "jdbc:mysql://localhost:3306/cantinadb"; 
             String username = "root";
-            String password = "raul";      
+            String password = "";      
             Connection connection;
             connection = DriverManager.getConnection(url, username, password);
             /* Caso a conexão ocorra com sucesso, a conexão é retornada */

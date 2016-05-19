@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface ResponsavelDAO {
     public void inserir(Responsavel responsavel);
-    public void remover(int id);
+    public void excluir(String cpf);
     public List<Responsavel> listar();
     public Responsavel buscar(int id);
     public void editar(Responsavel responsavel);
