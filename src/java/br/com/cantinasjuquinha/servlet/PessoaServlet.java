@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Angelo
+ * @author Wendell
  */
 public class PessoaServlet extends HttpServlet {
 

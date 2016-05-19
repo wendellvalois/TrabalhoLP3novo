@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Angelo
+ * @author Wendell
  */
 public interface ControllerLogic {
 //    public void executar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;

@@ -55,7 +55,7 @@ public class JDBCResponsavelDAO implements ResponsavelDAO {
 
     }
 
-        @Override
+    @Override
     public void remover(int id) {
         try {
             String SQL = "delete from responsavel where id= ?";
@@ -85,7 +85,7 @@ public class JDBCResponsavelDAO implements ResponsavelDAO {
                 responsavel.setTelefone(rs.getString("telefoneresponsavel"));
                 responsavel.setEmail(rs.getString("emailresponsavel"));
                 responsavel.setEndereco(rs.getString("enderecoresponsavel"));
-                
+
                 //responsavel.getEndereco()setRua(rs.getString("rua")); // com Endereco composto de vario valores
                 responsaveis.add(responsavel);
 
@@ -125,11 +125,15 @@ public class JDBCResponsavelDAO implements ResponsavelDAO {
     @Override
     public void editar(Responsavel responsavel) {
         try {
-            String SQL = "update pessoa set nome=? endereco= ? where cpf =?;";
+            String SQL = "update responsavel set nomeresponsavel=?,"
+                    + " telefoneresponsavel=?, emailresponsavel=?, "
+                    + "enderecoresponsavel=? where cpfresponsavel=?;";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ps.setString(1, responsavel.getNome());
-            ps.setString(2, responsavel.getEndereco());
-            ps.setString(3, responsavel.getCpf());
+            ps.setString(2, responsavel.getTelefone());
+            ps.setString(3, responsavel.getEmail());
+            ps.setString(4, responsavel.getEndereco());
+            ps.setString(5, responsavel.getCpf());
             ps.executeUpdate();
             ps.close();
         } catch (SQLException ex) {
