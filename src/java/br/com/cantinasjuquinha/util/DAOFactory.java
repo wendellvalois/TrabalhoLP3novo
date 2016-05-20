@@ -7,6 +7,8 @@ package br.com.cantinasjuquinha.util;
 
 import br.com.cantinasjuquinha.dao.JDBCResponsavelDAO;
 import br.com.cantinasjuquinha.dao.ResponsavelDAO;
+import br.com.cantinasjuquinha.dao.JDBCEscolaDAO;
+import br.com.cantinasjuquinha.dao.EscolaDAO;
 
 /**
  *
@@ -17,5 +19,9 @@ public class DAOFactory {
         return new JDBCResponsavelDAO();
         
     }
-    
+    public static EscolaDAO createEscolaDAO(){
+        return new JDBCEscolaDAO();
+        
+    }
 }
+

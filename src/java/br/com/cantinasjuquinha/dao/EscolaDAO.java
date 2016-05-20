@@ -14,11 +14,11 @@ import java.util.List;
  * @author Danilo
  */
 public interface EscolaDAO {
-    public void inserir(Escola responsavel);
-    public void excluir(String cpf);
+    public void inserir(Escola escola);
+    public void excluir(String matriculaescola);
     public List<Escola> listar();
-    public Escola buscar(int id);
-    public void editar(Escola responsavel);
+    public Escola buscar(int matriculaescola);
+    public void editar(Escola escola);
     
 }
 
