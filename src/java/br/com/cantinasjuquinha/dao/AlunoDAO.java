@@ -5,11 +5,19 @@
  */
 package br.com.cantinasjuquinha.dao;
 
+import br.com.cantinasjuquinha.bean.Aluno;
+import java.util.List;
+
 /**
  *
  * @author wendellvalois
  */
-public class AlunoDAO {
+public interface AlunoDAO {
     
+    public void inserir(Aluno aluno);
+    public void excluir(String cpf);
+    public List<Aluno> listar();
+    public Aluno buscar(int id);
+    public void editar(Aluno aluno);
     
 }

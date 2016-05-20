@@ -5,6 +5,8 @@
  */
 package br.com.cantinasjuquinha.util;
 
+import br.com.cantinasjuquinha.dao.JDBCAlunoDAO;
+import br.com.cantinasjuquinha.dao.AlunoDAO;
 import br.com.cantinasjuquinha.dao.JDBCResponsavelDAO;
 import br.com.cantinasjuquinha.dao.ResponsavelDAO;
 
@@ -15,6 +17,10 @@ import br.com.cantinasjuquinha.dao.ResponsavelDAO;
 public class DAOFactory {
     public static ResponsavelDAO createResponsavelDAO(){
         return new JDBCResponsavelDAO();
+        
+    }
+        public static AlunoDAO createAlunoDAO(){
+        return new JDBCAlunoDAO();
         
     }
     
