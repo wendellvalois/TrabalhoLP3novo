@@ -9,6 +9,8 @@ import br.com.cantinasjuquinha.dao.JDBCAlunoDAO;
 import br.com.cantinasjuquinha.dao.AlunoDAO;
 import br.com.cantinasjuquinha.dao.JDBCResponsavelDAO;
 import br.com.cantinasjuquinha.dao.ResponsavelDAO;
+import br.com.cantinasjuquinha.dao.JDBCEscolaDAO;
+import br.com.cantinasjuquinha.dao.EscolaDAO;
 
 /**
  *
@@ -24,4 +26,9 @@ public class DAOFactory {
         
     }
     
+    public static EscolaDAO createEscolaDAO(){
+        return new JDBCEscolaDAO();
+        
+    }
 }
+
