@@ -3,7 +3,7 @@
     Created on : May 15, 2016, 10:17:46 PM
     Author     : wendellvalois
 --%>
-
+<link rel="stylesheet" type="text/css" href="../estiloprincipal.css">
 <jsp:include page="header.jsp"/>
 
 <section style="margin-left:25%;padding:1px 16px;height:1000px;">
