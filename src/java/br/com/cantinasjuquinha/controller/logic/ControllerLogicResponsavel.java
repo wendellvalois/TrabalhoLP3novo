@@ -72,16 +72,16 @@ public class ControllerLogicResponsavel implements ControllerLogic {
     public void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ResponsavelDAO rd = new JDBCResponsavelDAO();
         request.setAttribute("responsaveis", rd.listar());
-        request.getRequestDispatcher("listaResponsavel").forward(request, response);
+        request.getRequestDispatcher("funcionario/listaResponsavel.jsp").forward(request, response);
     }
 
     @Override
     public void editarPopular(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id")); //mudar para cpf
+        int cpf = Integer.parseInt(request.getParameter("cpf")); //mudar para cpf
         ResponsavelDAO rd = new JDBCResponsavelDAO();
-        Responsavel r = rd.buscar(id);
+        Responsavel r = rd.buscar(cpf);
         request.setAttribute("responsavel", r);
-        request.getRequestDispatcher("editResponsavel").forward(request, response);
+        request.getRequestDispatcher("funcionario/editaResponsavel.jsp").forward(request, response);
 
     }
 

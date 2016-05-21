@@ -1,11 +1,13 @@
 <%-- 
-    Document   : alteraResponsavel
+    Document   : editaResponsavel
     Created on : May 18, 2016, 4:51:22 PM
     Author     : wendellvalois
 --%>
 <jsp:include page="header.jsp"/>
+<link rel="stylesheet" type="text/css" href="estiloprincipal.css">
 
 <jsp:useBean id="responsavel" scope="request" class="br.com.cantinasjuquinha.bean.Responsavel"/>
+
 
 <section style="margin-left:25%;padding:1px 16px;height:1000px;">
     <form action="/TrabalhoLP3novo/Controller?classe=ControllerLogicResponsavel&metodo=editar"  method="post">

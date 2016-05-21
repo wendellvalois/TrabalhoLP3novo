@@ -39,7 +39,7 @@ public class JDBCEscolaDAO implements EscolaDAO {
                     + "(?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(SQL);
 
-            ps.setString(1, escola.getmatriculaEscola());
+            ps.setInt(1, Integer.parseInt(escola.getmatriculaEscola()));
             ps.setString(2, escola.getnomeEscola());
             ps.setString(3, escola.getenderecoEscola());
             ps.setString(4, escola.gettelefoneEscola());

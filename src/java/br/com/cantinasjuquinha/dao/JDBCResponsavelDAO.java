@@ -101,18 +101,27 @@ public class JDBCResponsavelDAO implements ResponsavelDAO {
     }
 
     @Override
-    public Responsavel buscar(int id) {
+    public Responsavel buscar(int cpf) {
         try {
             Responsavel responsavel = new Responsavel();
-            String SQL = "select * from responsavel where id = ?";
+            String SQL = "select * from responsavel where cpfresponsavel = ?";
             PreparedStatement ps = connection.prepareStatement(SQL);
+            ps.setInt(1, cpf);
             ResultSet rs = ps.executeQuery();
 
             rs.next();
+            /*
             responsavel.setNome("nome");
             responsavel.setEndereco("endereco");
             responsavel.setEndereco("endereco");
             responsavel.setEmail("email");
+            */
+                            
+                responsavel.setCpf(rs.getString("cpfresponsavel"));
+                responsavel.setNome(rs.getString("nomeresponsavel"));
+                responsavel.setTelefone(rs.getString("telefoneresponsavel"));
+                responsavel.setEmail(rs.getString("emailresponsavel"));
+                responsavel.setEndereco(rs.getString("enderecoresponsavel"));
 
             return responsavel;
 

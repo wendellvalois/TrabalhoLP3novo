@@ -17,7 +17,7 @@ public interface ResponsavelDAO {
     public void inserir(Responsavel responsavel);
     public void excluir(String cpf);
     public List<Responsavel> listar();
-    public Responsavel buscar(int id);
+    public Responsavel buscar(int cpf);
     public void editar(Responsavel responsavel);
     
 }
