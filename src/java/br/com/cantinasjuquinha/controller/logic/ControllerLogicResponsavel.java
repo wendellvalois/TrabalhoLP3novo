@@ -55,7 +55,7 @@ public class ControllerLogicResponsavel implements ControllerLogic {
 
         ResponsavelDAO rd = new JDBCResponsavelDAO();
         rd.editar(responsavel);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("funcionario/paginainicial.jsp").forward(request, response);
 
     }
 

@@ -36,7 +36,7 @@ public class JDBCAlunoDAO implements AlunoDAO{
             /*           String SQL = "insert into (nome, cpf, telefone, email, login, senha) values"
                     + "(?,?,?,?,?,?)";
              */
-            String SQL = "insert into aluno (matriculaaluno, nomealuno, turmaaluno, turnoaluno, responsavelaluno) values"
+            String SQL = "insert into aluno (matriculaaluno, nomealuno, turmaaluno, turnoaluno, responsavel_cpfresponsavel) values"
                     + "(?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(SQL);
 
@@ -44,7 +44,7 @@ public class JDBCAlunoDAO implements AlunoDAO{
             ps.setString(2, aluno.getNome());
             ps.setString(3, aluno.getTurma());
             ps.setString(4, aluno.getTurno());
-            ps.setString(5, aluno.getResponsavel());
+            ps.setInt(5, Integer.parseInt(aluno.getResponsavel()));
             //ps.setString(5, aluno.getLogin());
             //ps.setString(6, aluno.getSenha());
 

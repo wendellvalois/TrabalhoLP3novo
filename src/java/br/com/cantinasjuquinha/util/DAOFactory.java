@@ -11,6 +11,8 @@ import br.com.cantinasjuquinha.dao.JDBCResponsavelDAO;
 import br.com.cantinasjuquinha.dao.ResponsavelDAO;
 import br.com.cantinasjuquinha.dao.JDBCEscolaDAO;
 import br.com.cantinasjuquinha.dao.EscolaDAO;
+import br.com.cantinasjuquinha.dao.JDBCUsuarioDAO;
+import br.com.cantinasjuquinha.dao.UsuarioDAO;
 
 /**
  *
@@ -28,6 +30,10 @@ public class DAOFactory {
     
     public static EscolaDAO createEscolaDAO(){
         return new JDBCEscolaDAO();
+        
+    }
+    public static UsuarioDAO createUsuarioDAO(){
+        return new JDBCUsuarioDAO();
         
     }
 }

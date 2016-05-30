@@ -5,6 +5,9 @@
  */
 package br.com.cantinasjuquinha.servlet;
 
+import br.com.cantinasjuquinha.bean.Usuario;
+import br.com.cantinasjuquinha.dao.UsuarioDAO;
+import br.com.cantinasjuquinha.util.DAOFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -12,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -36,24 +40,49 @@ public class Login extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");
 
+//        public String efetuaLogin(Usuario usuario, HttpSession session) {
+//            return usuario.getLogin();
+//        }
+//BUSCA E CONFIRMA USUARIO
+        Usuario usuariorequisitado = new Usuario();
 
-        if (usuario.equals("responsavel") && senha.equals("123")) {
-            response.sendRedirect("responsavel/paginainicial.jsp");
-        } else if (usuario.equals("funcionario") && senha.equals("123")) {
-            response.sendRedirect("funcionario/paginainicial.jsp");
-        } else if (usuario.equals("aluno") && senha.equals("123")) {
-            response.sendRedirect("aluno/paginainicial.jsp");
-        } else
-            {
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Usuário ou senha incorreta');");
- //           out.println("location='index.html';"); // reload de pagina
-            out.println("</script>");
-            RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
-            rs.include(request, response);
-        }
-        }
+        UsuarioDAO ud = DAOFactory.createUsuarioDAO();
+        usuariorequisitado = ud.buscar(usuario);
 
+        if (usuariorequisitado != null && senha.equals(usuariorequisitado.getSenha())) {
+            if (usuariorequisitado.getCpfResponsavel() != null) {
+                response.sendRedirect("responsavel/paginainicial.jsp");
+            } else if (usuariorequisitado.getCpfFuncionario() != null) {
+                response.sendRedirect("funcionario/paginainicial.jsp");
+            } else if (usuariorequisitado.getMatriculaAluno() != null) {
+                response.sendRedirect("aluno/paginainicial.jsp");
+
+            } else {
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Usuário ou senha incorreta');");
+                //           out.println("location='index.html';"); // reload de pagina
+                out.println("</script>");
+                RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
+                rs.include(request, response);
+            }
+        }
+    }
+
+//        if (usuario.equals("responsavel") && senha.equals("123")) {
+//            response.sendRedirect("responsavel/paginainicial.jsp");
+//        } else if (usuario.equals("funcionario") && senha.equals("123")) {
+//            response.sendRedirect("funcionario/paginainicial.jsp");
+//        } else if (usuario.equals("aluno") && senha.equals("123")) {
+//            response.sendRedirect("aluno/paginainicial.jsp");
+//        } else {
+//            out.println("<script type=\"text/javascript\">");
+//            out.println("alert('Usuário ou senha incorreta');");
+//            //           out.println("location='index.html';"); // reload de pagina
+//            out.println("</script>");
+//            RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
+//            rs.include(request, response);
+//        }
+//    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

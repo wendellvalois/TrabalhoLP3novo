@@ -33,19 +33,8 @@
         </nav>
         <div id="nav-left">
             <ul>
-                <li><a href="cadastraEscola.jsp">Cadastrar Escola</a></li>
-                <li><a href="cadastraProduto.jsp">Cadastrar Produto</a></li>
-               <!-- <li><a href="cadastraAluno">Cadastrar Aluno</a></li> -->
-                <li><a href="cadastraResponsavel.jsp">Cadastrar Responsavel</a></li>
-                <li><a href="alteraEscola.jsp">Alterar Escola</a></li>
-                <li><a href="alteraProduto.jsp">Alterar Produto</a></li>
-               <!-- <li><a href="alteraAluno.jsp">Alterar Aluno</a></li> -->
-                <li><a href="alteraResponsavel.jsp">Alterar Responsavel</a></li>
-                <li><a href="removeEscola.jsp">Remover Escola</a></li>
-                <li><a href="removeProduto.jsp">Remover Produto</a></li>
-                <!-- <li><a href="removeAluno.jsp">Remover Aluno</a></li> -->
-                <li><a href="removeResponsavel.jsp">Remover Responsavel</a></li>
-                <li><a href="consultarSaldoAluno.jsp">Consultar Saldo de Aluno</a></li>
+              <li><a href="cadastraAluno.jsp">Cadastrar Aluno</a></li>
+
                 
             </ul>
         </div>

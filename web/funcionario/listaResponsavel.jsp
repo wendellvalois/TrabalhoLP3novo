@@ -12,16 +12,7 @@
 <jsp:useBean id="responsavel" scope="session" class="br.com.cantinasjuquinha.bean.Responsavel"/>
 
 <section style="margin-left:25%;padding:1px 16px;height:1000px;">
-<%--
-<c:if test="${not empty responsavel.nome}">
-    Nome: ${responsavel.nome} 
-    CPF: ${responsavel.cpf} <br>
-</c:if>
 
-Rua: ${responsavel.endereco.rua}<br>
-Bairro: ${responsavel.endereco.bairro} <br>
-CEP: ${responsavel.endereco.cep} <br>
---%>
 
 
 <table border="1">
@@ -47,8 +38,7 @@ CEP: ${responsavel.endereco.cep} <br>
                 <td>${responsavel.endereco}</td>
                 <td>${responsavel.login}</td>
                 <td>${responsavel.senha}</td>
-                <
-                -
+
                 <td><a href="/TrabalhoLP3novo/Controller?classe=ControllerLogicResponsavel&metodo=editarPopular&cpf=${responsavel.cpf}">Editar</a></td>
                 <td><a href="/TrabalhoLP3novo/Controller?classe=ControllerLogicResponsavel&metodo=excluir&cpf=${responsavel.cpf}">Excluir</a></td>
             </tr>
@@ -57,12 +47,6 @@ CEP: ${responsavel.endereco.cep} <br>
 
     </tbody>
 </table>
-
-
-
-<%--
-<td><a href="Controller?classe=ControllerLogicPessoa&metodo=editarPopular%id=${responsavel.id}"></a></td>
---%>
 
 <jsp:include page="/footer.jsp"/>
 

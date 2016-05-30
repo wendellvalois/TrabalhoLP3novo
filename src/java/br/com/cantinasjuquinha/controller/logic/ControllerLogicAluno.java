@@ -6,40 +6,52 @@
 package br.com.cantinasjuquinha.controller.logic;
 
 import br.com.cantinasjuquinha.bean.Aluno;
+import br.com.cantinasjuquinha.bean.Usuario;
 import br.com.cantinasjuquinha.dao.JDBCAlunoDAO;
 import br.com.cantinasjuquinha.dao.AlunoDAO;
+import br.com.cantinasjuquinha.dao.JDBCUsuarioDAO;
+import br.com.cantinasjuquinha.dao.UsuarioDAO;
 import br.com.cantinasjuquinha.util.DAOFactory;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 /**
  *
  * @author wendellvalois
  */
 public class ControllerLogicAluno implements ControllerLogic {
-    
-    
+
     @Override
     public void adicionar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        
+
         Aluno aluno = new Aluno();
+        Usuario usuario = new Usuario();
 
         aluno.setMatricula(request.getParameter("matricula"));
         aluno.setNome(request.getParameter("nome"));
         aluno.setTurma(request.getParameter("turma"));
         aluno.setTurno(request.getParameter("turno"));
         aluno.setResponsavel(request.getParameter("responsavel"));
-        aluno.setLogin(request.getParameter("login"));
-        aluno.setSenha(request.getParameter("senha"));
+        //aluno.setLogin(request.getParameter("login"));
+        //aluno.setSenha(request.getParameter("senha"));
+
+        usuario.setLogin(request.getParameter("login"));
+        usuario.setSenha(request.getParameter("senha"));
+        usuario.setMatriculaAluno(request.getParameter("matricula"));
+
 
         AlunoDAO rd = DAOFactory.createAlunoDAO();
+       
+        
         rd.inserir(aluno);
         
-    //    request.setAttribute("nomeresp", aluno);
+        UsuarioDAO ud = DAOFactory.createUsuarioDAO();
+        ud.inserir(usuario);
 
-        request.getRequestDispatcher("funcionario/cadastraalunoConf.jsp").forward(request, response);
+        //    request.setAttribute("nomeresp", aluno);
+        request.getRequestDispatcher("responsavel/cadastraAlunoConf.jsp").forward(request, response);
 
     }
 
@@ -56,6 +68,7 @@ public class ControllerLogicAluno implements ControllerLogic {
         aluno.setSenha(request.getParameter("senha"));
 
         AlunoDAO rd = new JDBCAlunoDAO();
+
         rd.editar(aluno);
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
