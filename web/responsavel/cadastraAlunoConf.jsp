@@ -4,7 +4,7 @@
     Author     : wendellvalois
 --%>
 <link rel="stylesheet" type="text/css" href="../estiloprincipal.css">
-<jsp:include page="header.jsp"/>
+<jsp:include page="../responsavel/header.jsp"/>
 
 <section style="margin-left:25%;padding:1px 16px;height:1000px;">
 

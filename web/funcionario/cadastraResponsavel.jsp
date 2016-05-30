@@ -37,11 +37,11 @@
                 </tr>
                 <tr>
                     <td>Login de usuario:</td>
-                    <td><input type="text" name="novologin"></td>
+                    <td><input type="text" name="login"></td>
                 </tr>
                 <tr>
                     <td>Senha:</td>
-                    <td><input type="password" name="novasenha"></td>
+                    <td><input type="password" name="senha"></td>
                 </tr>
                 <tr>
                     <td>Confirmação de senha</td>

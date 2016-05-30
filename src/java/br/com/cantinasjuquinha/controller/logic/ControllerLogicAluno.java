@@ -13,6 +13,7 @@ import br.com.cantinasjuquinha.dao.JDBCUsuarioDAO;
 import br.com.cantinasjuquinha.dao.UsuarioDAO;
 import br.com.cantinasjuquinha.util.DAOFactory;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,7 +34,11 @@ public class ControllerLogicAluno implements ControllerLogic {
         aluno.setNome(request.getParameter("nome"));
         aluno.setTurma(request.getParameter("turma"));
         aluno.setTurno(request.getParameter("turno"));
-        aluno.setResponsavel(request.getParameter("responsavel"));
+        //aluno.setResponsavel(request.getParameter("responsavel"));
+        System.out.println( request.getSession().getAttribute("id"));
+        
+        aluno.setResponsavel((String) request.getSession().getAttribute("id"));
+        
         //aluno.setLogin(request.getParameter("login"));
         //aluno.setSenha(request.getParameter("senha"));
 
@@ -50,9 +55,12 @@ public class ControllerLogicAluno implements ControllerLogic {
         UsuarioDAO ud = DAOFactory.createUsuarioDAO();
         ud.inserir(usuario);
 
-        //    request.setAttribute("nomeresp", aluno);
+        request.setAttribute("nomeresp", aluno);
+        //response.sendRedirect("responsavel/cadastraAlunoConf.jsp");
+        //request.getRequestDispatcher("responsavel/cadastraAlunoConf.jsp").forward(request, response);
         request.getRequestDispatcher("responsavel/cadastraAlunoConf.jsp").forward(request, response);
-
+//        RequestDispatcher rdis = request.getRequestDispatcher("/responsavel/cadastraAlunoConf.jsp");
+//        rdis.forward(request, response);
     }
 
     @Override

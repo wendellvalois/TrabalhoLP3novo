@@ -6,8 +6,10 @@
 package br.com.cantinasjuquinha.controller.logic;
 
 import br.com.cantinasjuquinha.bean.Responsavel;
+import br.com.cantinasjuquinha.bean.Usuario;
 import br.com.cantinasjuquinha.dao.JDBCResponsavelDAO;
 import br.com.cantinasjuquinha.dao.ResponsavelDAO;
+import br.com.cantinasjuquinha.dao.UsuarioDAO;
 import br.com.cantinasjuquinha.util.DAOFactory;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -23,6 +25,7 @@ public class ControllerLogicResponsavel implements ControllerLogic {
     @Override
     public void adicionar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Responsavel responsavel = new Responsavel();
+        Usuario usuario = new Usuario();
 
         responsavel.setCpf(request.getParameter("cpf"));
         responsavel.setNome(request.getParameter("nome"));
@@ -31,9 +34,17 @@ public class ControllerLogicResponsavel implements ControllerLogic {
         responsavel.setEndereco(request.getParameter("endereco"));
         responsavel.setLogin(request.getParameter("login"));
         responsavel.setSenha(request.getParameter("senha"));
+        
+         usuario.setLogin(request.getParameter("login"));
+        usuario.setSenha(request.getParameter("senha"));
+        usuario.setCpfResponsavel(request.getParameter("cpf"));
+
 
         ResponsavelDAO rd = DAOFactory.createResponsavelDAO();
         rd.inserir(responsavel);
+        
+        UsuarioDAO ud = DAOFactory.createUsuarioDAO();
+        ud.inserir(usuario);
         
     //    request.setAttribute("nomeresp", responsavel);
 

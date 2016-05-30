@@ -32,10 +32,11 @@
                     <td>Turno:</td>
                     <td><input type="text" name="turno"></td>
                 </tr>
-                <tr>
-                    <td>Responsavel:</td>
+                <!-- <tr>
+                    <td>CPF Responsavel:</td>
                     <td><input type="text" name="responsavel"></td>
                 </tr>
+                            !-->
                 <tr>
                     <td>Login de usuario:</td>
                     <td><input type="text" name="login"></td>

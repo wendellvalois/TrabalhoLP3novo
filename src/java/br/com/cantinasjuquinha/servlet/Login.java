@@ -48,14 +48,28 @@ public class Login extends HttpServlet {
 
         UsuarioDAO ud = DAOFactory.createUsuarioDAO();
         usuariorequisitado = ud.buscar(usuario);
+         
+        RequestDispatcher rd;
 
         if (usuariorequisitado != null && senha.equals(usuariorequisitado.getSenha())) {
-            if (usuariorequisitado.getCpfResponsavel() != null) {
-                response.sendRedirect("responsavel/paginainicial.jsp");
+            if (usuariorequisitado.getCpfResponsavel() != null) {                
+                request.getSession().setAttribute("id", usuariorequisitado.getCpfResponsavel());
+                rd = request.getRequestDispatcher("responsavel/paginainicial.jsp");
+                rd.forward(request, response);
+                //System.out.println( request.getSession().getAttribute("id"));
+                
+               // response.sendRedirect("responsavel/paginainicial.jsp");
+                
             } else if (usuariorequisitado.getCpfFuncionario() != null) {
-                response.sendRedirect("funcionario/paginainicial.jsp");
+                request.getSession().setAttribute("id", usuariorequisitado.getCpfFuncionario());
+                //response.sendRedirect("funcionario/paginainicial.jsp");
+                rd = request.getRequestDispatcher("funcionario/paginainicial.jsp");
+                rd.forward(request, response);
             } else if (usuariorequisitado.getMatriculaAluno() != null) {
-                response.sendRedirect("aluno/paginainicial.jsp");
+                request.getSession().setAttribute("id", usuariorequisitado.getMatriculaAluno());
+                //response.sendRedirect("aluno/paginainicial.jsp");
+                rd = request.getRequestDispatcher("aluno/paginainicial.jsp");
+                rd.forward(request, response);
 
             } else {
                 out.println("<script type=\"text/javascript\">");
