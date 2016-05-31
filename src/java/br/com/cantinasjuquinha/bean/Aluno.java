@@ -15,11 +15,13 @@ public class Aluno {
     private String turma;
     private String turno;
     private String responsavel;
+    private String saldo;
     private String login;
     private String senha;
     
     public Aluno()
     {
+        saldo="0";
     }
 
     /**
@@ -118,6 +120,20 @@ public class Aluno {
      */
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    /**
+     * @return the saldo
+     */
+    public String getSaldo() {
+        return saldo;
+    }
+
+    /**
+     * @param saldo the saldo to set
+     */
+    public void setSaldo(String saldo) {
+        this.saldo = saldo;
     }
     
     

@@ -33,8 +33,14 @@
         </nav>
         <div id="nav-left">
             <ul>
-              <li><a href="/TrabalhoLP3novo/responsavel/cadastraAluno.jsp">Cadastrar Aluno</a></li>
+                <li><a href="/TrabalhoLP3novo/responsavel/cadastraAluno.jsp">Cadastrar Aluno</a></li>
+                <li><a href="/TrabalhoLP3novo/Controller?classe=ControllerLogicAluno&metodo=listar">Listar Alunos</a></li>
 
-                
+
             </ul>
+
+
+
         </div>
+    </body>
+</html>

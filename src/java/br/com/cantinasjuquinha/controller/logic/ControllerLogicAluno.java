@@ -13,6 +13,7 @@ import br.com.cantinasjuquinha.dao.JDBCUsuarioDAO;
 import br.com.cantinasjuquinha.dao.UsuarioDAO;
 import br.com.cantinasjuquinha.util.DAOFactory;
 import java.io.IOException;
+import static java.lang.System.out;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -34,24 +35,22 @@ public class ControllerLogicAluno implements ControllerLogic {
         aluno.setNome(request.getParameter("nome"));
         aluno.setTurma(request.getParameter("turma"));
         aluno.setTurno(request.getParameter("turno"));
+        
         //aluno.setResponsavel(request.getParameter("responsavel"));
-        System.out.println( request.getSession().getAttribute("id"));
-        
+        System.out.println(request.getSession().getAttribute("id"));
+
         aluno.setResponsavel((String) request.getSession().getAttribute("id"));
-        
+
         //aluno.setLogin(request.getParameter("login"));
         //aluno.setSenha(request.getParameter("senha"));
-
         usuario.setLogin(request.getParameter("login"));
         usuario.setSenha(request.getParameter("senha"));
         usuario.setMatriculaAluno(request.getParameter("matricula"));
 
-
         AlunoDAO rd = DAOFactory.createAlunoDAO();
-       
-        
+
         rd.inserir(aluno);
-        
+
         UsuarioDAO ud = DAOFactory.createUsuarioDAO();
         ud.inserir(usuario);
 
@@ -65,20 +64,47 @@ public class ControllerLogicAluno implements ControllerLogic {
 
     @Override
     public void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //apenas para mudanca em saldo
         Aluno aluno = new Aluno();
+        String valorstring = request.getParameter("valor");
+        String saldostring = request.getParameter("saldo");
+
+        if (saldostring == null || saldostring == "") saldostring = "0";
+        
+        if (valorstring == null) {
+            valorstring = "0";
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Valor nulo');");
+            out.println("</script>");
+            System.out.println("O valor enviado era nulo");
+        }
+        
+
+            int valor = Integer.parseInt(valorstring);
+            int saldo = Integer.parseInt(saldostring);
+
+            saldo += valor;
+        
 
         aluno.setMatricula(request.getParameter("matricula"));
-        aluno.setNome(request.getParameter("nome"));
-        aluno.setTurma(request.getParameter("turma"));
-        aluno.setTurno(request.getParameter("turno"));
-        aluno.setResponsavel(request.getParameter("responsavel"));
-        aluno.setLogin(request.getParameter("login"));
-        aluno.setSenha(request.getParameter("senha"));
+        aluno.setSaldo(String.valueOf(saldo));
+//        aluno.setNome(request.getParameter("nome"));
+//        aluno.setTurma(request.getParameter("turma"));
+//        aluno.setTurno(request.getParameter("turno"));
+//        aluno.setResponsavel(request.getParameter("responsavel"));
+//        aluno.setLogin(request.getParameter("login"));
+//        aluno.setSenha(request.getParameter("senha"));
 
         AlunoDAO rd = new JDBCAlunoDAO();
 
         rd.editar(aluno);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+
+        out.println("<script type=\"text/javascript\">");
+        out.println("alert('Dinheiro enviado');");
+        //           out.println("location='index.html';"); // reload de pagina
+        out.println("</script>");
+
+        request.getRequestDispatcher("responsavel/paginainicial.jsp").forward(request, response);
 
     }
 
@@ -94,17 +120,21 @@ public class ControllerLogicAluno implements ControllerLogic {
     @Override
     public void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AlunoDAO rd = new JDBCAlunoDAO();
-        request.setAttribute("responsaveis", rd.listar());
-        request.getRequestDispatcher("listaaluno").forward(request, response);
+        String responsavel = (String) request.getSession().getAttribute("id");
+        System.out.println(" estou dentro de listar: " + responsavel);
+        request.setAttribute("alunos", rd.listar(responsavel));
+        request.getRequestDispatcher("responsavel/listaAlunos.jsp").forward(request, response);
+
     }
 
     @Override
     public void editarPopular(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id")); //mudar para matricula
+        int matricula = Integer.parseInt(request.getParameter("matricula")); //mudar para matricula
+
         AlunoDAO rd = new JDBCAlunoDAO();
-        Aluno r = rd.buscar(id);
+        Aluno r = rd.buscar(matricula);
         request.setAttribute("aluno", r);
-        request.getRequestDispatcher("editaluno").forward(request, response);
+        request.getRequestDispatcher("responsavel/editaAlunoSaldo.jsp").forward(request, response);
 
     }
 

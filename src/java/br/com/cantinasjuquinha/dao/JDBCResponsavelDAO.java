@@ -115,13 +115,13 @@ public class JDBCResponsavelDAO implements ResponsavelDAO {
             responsavel.setEndereco("endereco");
             responsavel.setEndereco("endereco");
             responsavel.setEmail("email");
-            */
-                            
-                responsavel.setCpf(rs.getString("cpfresponsavel"));
-                responsavel.setNome(rs.getString("nomeresponsavel"));
-                responsavel.setTelefone(rs.getString("telefoneresponsavel"));
-                responsavel.setEmail(rs.getString("emailresponsavel"));
-                responsavel.setEndereco(rs.getString("enderecoresponsavel"));
+             */
+
+            responsavel.setCpf(rs.getString("cpfresponsavel"));
+            responsavel.setNome(rs.getString("nomeresponsavel"));
+            responsavel.setTelefone(rs.getString("telefoneresponsavel"));
+            responsavel.setEmail(rs.getString("emailresponsavel"));
+            responsavel.setEndereco(rs.getString("enderecoresponsavel"));
 
             return responsavel;
 

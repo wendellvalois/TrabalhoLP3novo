@@ -16,8 +16,8 @@ public interface AlunoDAO {
     
     public void inserir(Aluno aluno);
     public void excluir(String cpf);
-    public List<Aluno> listar();
-    public Aluno buscar(int id);
+    public List<Aluno> listar(String cpfresponsavel);
+    public Aluno buscar(int matricula);
     public void editar(Aluno aluno);
     
 }
