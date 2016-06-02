@@ -6,6 +6,7 @@
 
 
 <jsp:include page="header.jsp"/>
+<link rel="stylesheet" type="text/css" href="/TrabalhoLP3novo/tabelalista.css">
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -15,7 +16,7 @@
 
 
 
-<table border="1">
+<table>
     <thead>
         <tr>
             <th>Matricula</th>

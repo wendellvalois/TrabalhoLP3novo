@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" type="text/css" href="estiloprincipal.css">
+        <link rel="stylesheet" type="text/css" href="/TrabalhoLP3novo/estiloprincipal.css">
     </head>
     <body style="margin: 50px">
         <h1>Erro 404</h1>
@@ -19,7 +19,7 @@
         Contacte ao gerente de software.
         </p>
         
-        <img src="images/cantinaescolar.jpg" width="615" height="126" alt="cantina escolar"/>
+        <img src="/TrabalhoLP3novo/images/cantinaescolar.jpg" width="615" height="126" alt="cantina escolar"/>
 
     </body>
 </html>

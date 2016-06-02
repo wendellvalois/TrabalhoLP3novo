@@ -42,18 +42,19 @@
                 <li><a href="removeEscola.jsp">Remover Escola</a></li>
                 !-->
                 
-                <li><a href="cadastraProduto.jsp">Cadastrar Produto</a></li>
+                <li><a href="/TrabalhoLP3novo/funcionario/cadastraAlimento.jsp">Cadastrar Alimento</a></li>
+                <li><a href="/TrabalhoLP3novo/funcionario/cadastraBebida.jsp">Cadastrar Bebida</a></li>
                <!-- <li><a href="cadastraAluno">Cadastrar Aluno</a></li> !-->
 
                 
                 <li><a href="alteraProduto.jsp">Alterar Produto</a></li>
-               <!-- <li><a href="alteraAluno.jsp">Alterar Aluno</a></li> !-->
+               <!-- <li><a href="/TrabalhoLP3novo/funcionario/alteraAluno.jsp">Alterar Aluno</a></li> 
                
- 
-                <li><a href="removeProduto.jsp">Remover Produto</a></li>
+                 <li><a href="/TrabalhoLP3novo/funcionario/removeProduto.jsp">Remover Produto</a></li>
                 
              
-                <li><a href="consultarSaldoAluno.jsp">Consultar Saldo de Aluno</a></li>
+                <li><a href="/TrabalhoLP3novo/funcionario/consultarSaldoAluno.jsp">Consultar Saldo de Aluno</a></li>
+!-->
                 
             </ul>
         </div>
