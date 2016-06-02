@@ -7,10 +7,12 @@ package br.com.cantinasjuquinha.util;
 
 import br.com.cantinasjuquinha.dao.JDBCAlunoDAO;
 import br.com.cantinasjuquinha.dao.AlunoDAO;
+import br.com.cantinasjuquinha.dao.CompraDAO;
 import br.com.cantinasjuquinha.dao.JDBCResponsavelDAO;
 import br.com.cantinasjuquinha.dao.ResponsavelDAO;
 import br.com.cantinasjuquinha.dao.JDBCEscolaDAO;
 import br.com.cantinasjuquinha.dao.EscolaDAO;
+import br.com.cantinasjuquinha.dao.JDBCCompraDAO;
 import br.com.cantinasjuquinha.dao.JDBCProdutoDAO;
 import br.com.cantinasjuquinha.dao.JDBCUsuarioDAO;
 import br.com.cantinasjuquinha.dao.ProdutoDAO;
@@ -44,6 +46,10 @@ public class DAOFactory {
 
     public static ProdutoDAO createProdutoDAO() {
         return new JDBCProdutoDAO();
+
+    }
+        public static CompraDAO createCompraDAO() {
+        return new JDBCCompraDAO();
 
     }
 }

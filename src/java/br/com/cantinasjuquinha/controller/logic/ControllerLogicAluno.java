@@ -107,6 +107,9 @@ public class ControllerLogicAluno implements ControllerLogic {
         request.getRequestDispatcher("responsavel/paginainicial.jsp").forward(request, response);
 
     }
+    
+    
+    
 
     @Override
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -136,6 +139,11 @@ public class ControllerLogicAluno implements ControllerLogic {
         request.setAttribute("aluno", r);
         request.getRequestDispatcher("responsavel/editaAlunoSaldo.jsp").forward(request, response);
 
+    }
+
+    @Override
+    public void buscarcampo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -58,8 +58,14 @@ public class JDBCResponsavelDAO implements ResponsavelDAO {
     @Override
     public void excluir(String cpf) {
         try {
-            String SQL = "delete from responsavel where cpfresponsavel= ?";
+
+            String SQL = "delete from user where responsavel_cpfresponsavel= ?";
             PreparedStatement ps = connection.prepareStatement(SQL);
+            ps.setString(1, cpf);
+            ps.executeUpdate();
+
+            SQL = "delete from responsavel where cpfresponsavel= ?";
+             ps = connection.prepareStatement(SQL);
             ps.setString(1, cpf);
             ps.executeUpdate();
 

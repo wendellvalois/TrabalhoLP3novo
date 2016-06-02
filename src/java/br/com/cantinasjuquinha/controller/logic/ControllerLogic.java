@@ -20,4 +20,6 @@ public interface ControllerLogic {
     public void editarPopular(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
     public void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+    public void buscarcampo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
+
 }

@@ -118,12 +118,12 @@ public class JDBCProdutoDAO implements ProdutoDAO {
     }
 
     @Override
-    public Produto buscar(int cpf) {
+    public Produto buscar(String codigoproduto) {
         try {
             Produto produto = new Produto();
-            String SQL = "select * from produto where cpfproduto = ?";
+            String SQL = "select * from produto where codigoproduto = ?";
             PreparedStatement ps = connection.prepareStatement(SQL);
-            ps.setInt(1, cpf);
+            ps.setString(1, codigoproduto);
             ResultSet rs = ps.executeQuery();
 
             rs.next();
@@ -134,11 +134,11 @@ public class JDBCProdutoDAO implements ProdutoDAO {
             produto.setEmail("email");
              */
 
-            produto.setCodigoproduto(rs.getString("codigo"));
-            produto.setPrecoproduto(rs.getString("preco"));
-            produto.setNomeproduto(rs.getString("nome"));
-            produto.setFornecedorproduto(rs.getString("fornecedor"));
-            produto.setIngredientesproduto(rs.getString("ingredientes"));
+            produto.setCodigoproduto(rs.getString("codigoproduto"));
+            produto.setPrecoproduto(rs.getString("precoproduto"));
+            produto.setNomeproduto(rs.getString("nomeproduto"));
+            produto.setFornecedorproduto(rs.getString("fornecedorproduto"));
+            produto.setIngredientesproduto(rs.getString("ingredientesproduto"));
 
             return produto;
 

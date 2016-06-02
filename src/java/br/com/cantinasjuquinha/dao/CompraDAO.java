@@ -5,7 +5,7 @@
  */
 package br.com.cantinasjuquinha.dao;
 
-import br.com.cantinasjuquinha.bean.Produto;
+import br.com.cantinasjuquinha.bean.Compra;
 import java.util.List;
 
 
@@ -13,11 +13,11 @@ import java.util.List;
  *
  * @author wendellvalois
  */
-public interface ProdutoDAO {
-    public void inserir(Produto produto);
-    public void excluir(String codigo);
-    public List<Produto> listar();
-    public Produto buscar(String codigoproduto);
-    public void editar(Produto produto);
+public interface CompraDAO {
+    public void inserir(Compra compra);
+    public void excluir(String cpf);
+    public List<Compra> listar();
+    public Compra buscar(int cpf);
+    public void editar(Compra compra);
     
 }

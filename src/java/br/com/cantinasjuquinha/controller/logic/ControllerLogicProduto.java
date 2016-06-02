@@ -79,10 +79,15 @@ public class ControllerLogicProduto implements ControllerLogic {
     public void editarPopular(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int cpf = Integer.parseInt(request.getParameter("cpf")); //mudar para cpf
         ProdutoDAO rd = new JDBCProdutoDAO();
-        Produto r = rd.buscar(cpf);
-        request.setAttribute("produto", r);
-        request.getRequestDispatcher("funcionario/editaProduto.jsp").forward(request, response);
+//        Produto r = rd.buscar(cpf);
+//        request.setAttribute("produto", r);
+//        request.getRequestDispatcher("funcionario/editaProduto.jsp").forward(request, response);
 
+    }
+
+    @Override
+    public void buscarcampo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

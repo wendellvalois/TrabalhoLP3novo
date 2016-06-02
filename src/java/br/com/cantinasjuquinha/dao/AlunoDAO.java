@@ -19,5 +19,6 @@ public interface AlunoDAO {
     public List<Aluno> listar(String cpfresponsavel);
     public Aluno buscar(int matricula);
     public void editar(Aluno aluno);
+    public void realizacompra(String valor, String matriculaaluno);
     
 }

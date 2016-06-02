@@ -111,6 +111,47 @@ public class JDBCAlunoDAO implements AlunoDAO {
         }
     }
 
+    public void realizacompra(String valorstring, String matriculaaluno) {
+
+        //recebe-se valor da compra e matricula do aluno a ser descontado
+        Aluno aluno = this.buscar(Integer.parseInt(matriculaaluno));
+
+        String saldostring = aluno.getSaldo();
+
+        if (valorstring == null) {
+            valorstring = "0";
+        }
+
+        //pega o valor de saldo e valor a ser cobrado e transforma em int
+        int valor = Integer.parseInt(valorstring);
+        int saldo = Integer.parseInt(saldostring);
+
+        if (saldo > valor) {
+            saldo -= valor;
+            aluno.setSaldo(String.valueOf(saldo));
+            this.editar(aluno);
+
+        } else {
+            System.out.println("saldo insuficiente");
+            //modificar para uma alerta
+        }
+        
+        
+
+        
+//        aluno.setNome(request.getParameter("nome"));
+//        aluno.setTurma(request.getParameter("turma"));
+//        aluno.setTurno(request.getParameter("turno"));
+//        aluno.setResponsavel(request.getParameter("responsavel"));
+//        aluno.setLogin(request.getParameter("login"));
+//        aluno.setSenha(request.getParameter("senha"));
+
+       
+
+        
+
+    }
+
     @Override
     public Aluno buscar(int matricula) {
         try {
